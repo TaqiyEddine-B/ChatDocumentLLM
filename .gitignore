@@ -1,2 +1,5 @@
 *.pdf
 .env
+.pyc
+*.txt
+temp

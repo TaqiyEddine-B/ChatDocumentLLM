@@ -12,7 +12,7 @@ from langchain.vectorstores import Pinecone
 import streamlit as st
 load_dotenv()
 
-def do():
+def get_qa_chain():
     pinecone.init(api_key=os.environ['PINECONE_API'], environment='gcp-starter')
 
     # Load and preprocess the PDF document
@@ -27,22 +27,23 @@ def do():
     # Use HuggingFace embeddings for transforming text into numerical vectors
     embeddings = HuggingFaceEmbeddings()
 
+
     # Set up the Pinecone vector database
     index_name = "index"
     index = pinecone.Index(index_name)
     vectordb = Pinecone.from_documents(texts, embeddings, index_name=index_name)
 
     llm = OpenAI()
+    # Set up the Conversational Retrieval Chain
+    qa_chain = ConversationalRetrievalChain.from_llm(
+        llm,
+        vectordb.as_retriever(search_kwargs={'k': 2}),
+        return_source_documents=True
+    )
+    return qa_chain
 
-    return llm, vectordb
+qa_chain = get_qa_chain()
 
-llm, vectordb = do()
-# Set up the Conversational Retrieval Chain
-qa_chain = ConversationalRetrievalChain.from_llm(
-    llm,
-    vectordb.as_retriever(search_kwargs={'k': 2}),
-    return_source_documents=True
-)
 chat_history=[]
 
 def old():
@@ -58,15 +59,6 @@ def old():
 
 
 def send_message_to_llm_api(messages):
-
-    # response= make_post_request(url=llm_api_url,params=params,debug =False)
-    # response = requests.post(url, headers=headers, data=json.dumps({"messages": messages}))
-    # if response.status_code == 200:
-    #     data= response.json()
-    #     return data['choices'][0]['message']['content']
-    # else:
-    #     print(f"Error {response.status_code}: {response.text}")
-    #     return None
     query = messages[-1]['content']
 
     result = qa_chain({'question': query, 'chat_history': chat_history})
