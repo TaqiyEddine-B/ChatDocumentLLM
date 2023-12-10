@@ -12,9 +12,9 @@ class ChromaPy:
     def __init__(self,):
         self.db=None
 
-    def prepare(self,):
+    def prepare(self,txt_file):
         # Load the document, split it into chunks, embed each chunk and load it into the vector store.
-        raw_documents = TextLoader('cv.txt').load()
+        raw_documents = TextLoader(txt_file).load()
         text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
         documents = text_splitter.split_documents(raw_documents)
         db = Chroma.from_documents(documents, OpenAIEmbeddings())
