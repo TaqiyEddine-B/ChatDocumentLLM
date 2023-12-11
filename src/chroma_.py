@@ -10,11 +10,13 @@ load_dotenv()
 
 class ChromaPy:
 
-    def __init__(self,):
+    def __init__(self,openai_key):
         self.db=None
         # check if the env variable 'OPENAI_API_KEY' is set
         if not os.getenv('OPENAI_API_KEY'):
-            raise Exception('OPENAI_API_KEY env variable is not set')
+            # if not, set it to the value of the openai_key parameter
+            os.environ['OPENAI_API_KEY'] = openai_key
+
 
 
     def prepare(self,txt_file):

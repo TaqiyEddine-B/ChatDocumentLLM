@@ -11,6 +11,7 @@ from src.chroma_ import ChromaPy
 from src.utils import chat_bot
 
 st.write("# Chat with your documents using langchain and streamlit")
+openai_key = st.sidebar.text_input('OpenAI Key', '')
 
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 if uploaded_file is not None:
@@ -21,7 +22,7 @@ if uploaded_file is not None:
     file_path = os.path.join(os.getcwd(), 'my_file.txt')
     with open(file_path, "w") as file:
         file.write(string_data)
-    ch = ChromaPy()
+    ch = ChromaPy(openai_key)
     ch.prepare(txt_file=file_path)
     with st.expander("File content"):
         st.write(string_data)
