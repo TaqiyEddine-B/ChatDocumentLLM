@@ -11,6 +11,10 @@ class ChromaPy:
 
     def __init__(self,):
         self.db=None
+        # check if the env variable 'OPENAI_API_KEY' is set
+        if not os.getenv('OPENAI_API_KEY'):
+            raise Exception('OPENAI_API_KEY env variable is not set')
+
 
     def prepare(self,txt_file):
         # Load the document, split it into chunks, embed each chunk and load it into the vector store.
@@ -19,7 +23,6 @@ class ChromaPy:
         documents = text_splitter.split_documents(raw_documents)
         db = Chroma.from_documents(documents, OpenAIEmbeddings())
         self.db = db
-
 
     def chat_function(self,query) :
         docs = self.db.similarity_search(query, k=1)

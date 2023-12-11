@@ -1,6 +1,5 @@
-import os
-
 """ Main file for the chatbot. """
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -22,7 +21,6 @@ if uploaded_file is not None:
     file_path = os.path.join(os.getcwd(), 'my_file.txt')
     with open(file_path, "w") as file:
         file.write(string_data)
-    st.write("File saved in: ", file_path)
     ch = ChromaPy()
     ch.prepare(txt_file=file_path)
     with st.expander("File content"):
@@ -34,4 +32,3 @@ if uploaded_file is not None:
 #chat_bot(fun=ch.chat_function)
 
 # WEB VERSION
-
