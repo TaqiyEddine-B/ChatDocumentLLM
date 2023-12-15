@@ -34,10 +34,10 @@ def upload_file():
 
 def load_local_files():
     # load all text files in 'data' folder
-    result =[]
+    result ={}
     for file in os.listdir('data'):
         if file.endswith('.txt'):
-            result.append(os.path.join(os.getcwd(), 'data', file))
+            result[file] = {'name':os.path.splitext(file)[0] ,'path':os.path.join(os.getcwd(), 'data', file)}
     return result
 
 def load_questions(chat_bot,file_name):
@@ -61,12 +61,12 @@ def load_questions(chat_bot,file_name):
 
 local_files = load_local_files()
 st.sidebar.write("## Local files")
-file_path = st.sidebar.selectbox('Select a file', local_files)
-file_name = os.path.basename(file_path)
-st.write(f"## {file_name}")
-chat_bot = pipeline(file_path)
+file_path = st.sidebar.selectbox('Select a file', local_files.keys())
+file_name = local_files[file_path]['name']
+dd = local_files[file_path]['path']
+chat_bot = pipeline(dd)
 chat_bot.chat_bot()
-load_questions(chat_bot,file_name)
+load_questions(chat_bot,file_path)
 
 
 # CMD LINE VERSION
