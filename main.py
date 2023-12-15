@@ -1,7 +1,7 @@
 """ Main file for the chatbot. """
 import os
 from dotenv import load_dotenv
-
+import json
 load_dotenv()
 import streamlit as st
 from io import StringIO
@@ -13,21 +13,61 @@ from src.utils import chat_bot
 st.write("# Chat with your documents using langchain and streamlit")
 openai_key = st.sidebar.text_input('OpenAI Key', '')
 
-uploaded_file = st.sidebar.file_uploader("Choose a file")
-if uploaded_file is not None:
-    bytes_data = uploaded_file.getvalue()
-    string_data = bytes_data.decode("utf-8")
-
-    # Save the file in the current directory
-    file_path = os.path.join(os.getcwd(), 'my_file.txt')
-    with open(file_path, "w") as file:
-        file.write(string_data)
+def pipeline(file_path:str) :
     ch = ChromaPy(openai_key)
     ch.prepare(txt_file=file_path)
     with st.expander("File content"):
-        st.write(string_data)
+        st.write(ch.raw_text)
     chat_bot = ChatAgent(fun=ch.chat_function)
-    chat_bot.chat_bot()
+    return chat_bot
+
+def upload_file():
+    uploaded_file = st.sidebar.file_uploader("Choose a file")
+    if uploaded_file is not None:
+        bytes_data = uploaded_file.getvalue()
+        string_data = bytes_data.decode("utf-8")
+        file_path = os.path.join(os.getcwd(), 'my_file.txt')
+        # Save the file in the current directory
+        # with open(file_path, "w") as file:
+        #     file.write(string_data)
+        return file_path
+
+def load_local_files():
+    # load all text files in 'data' folder
+    result =[]
+    for file in os.listdir('data'):
+        if file.endswith('.txt'):
+            result.append(os.path.join(os.getcwd(), 'data', file))
+    return result
+
+def load_questions(chat_bot,file_name):
+
+    # load question file from data
+    question_file = os.path.join(os.getcwd(), 'data', 'data.json')
+    with open(question_file) as json_file:
+        questions = json.load(json_file)
+    questions_list = ['']
+    # get the question of file_name
+    if file_name in questions.keys():
+        questions_list.extend(questions[file_name])
+    if len(questions_list)>1:
+        st.sidebar.write("## Questions of the selected file")
+        question = st.sidebar.selectbox('Select a question', questions_list)
+        last_question = st.session_state.get('question', '')
+
+        if len(question)>1 and last_question != question:
+            chat_bot.external_question(question)
+            st.session_state['question'] = question
+
+local_files = load_local_files()
+st.sidebar.write("## Local files")
+file_path = st.sidebar.selectbox('Select a file', local_files)
+file_name = os.path.basename(file_path)
+st.write(f"## {file_name}")
+chat_bot = pipeline(file_path)
+chat_bot.chat_bot()
+load_questions(chat_bot,file_name)
+
 
 # CMD LINE VERSION
 #chat_bot(fun=ch.chat_function)

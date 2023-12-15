@@ -1,5 +1,5 @@
 *.pdf
 .env
 *.pyc
-*.txt
 temp
+data/cv_teb.txt

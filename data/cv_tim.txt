@@ -1,0 +1,106 @@
+Educations:
+1.
+   - Title: Computer Science
+   - Degree: Master of Science in Computer Science
+   - University: Stanford University, Palo Alto, USA
+   - Duration: 08/2018 - 05/2020
+
+2.
+   - Title: Software Engineering
+   - Degree: Bachelor of Science in Software Engineering
+   - University: University of Toronto, Toronto, Canada
+   - Duration: 09/2014 - 06/2018
+
+Work Experiences:
+1.
+   - Title: Software Engineer
+   - Company: Tech Innovations Inc.
+   - Duration: 06/2020 – Present
+   - Location: San Francisco, USA
+   - Category: Full-time
+   - Missions:
+      - Collaborating in the development of a cloud-based financial analytics platform.
+      - Designing and implementing microservices using Java and Spring Boot.
+      - Conducting code reviews and ensuring high code quality standards.
+      - Participating in Agile development sprints and scrum meetings.
+   - Skills: Java, Spring Boot, JavaScript, React, SQL, Agile
+
+2.
+   - Title: Software Development Intern
+   - Company: Silicon Valley Tech Labs
+   - Duration: 05/2019 – 08/2019
+   - Location: Mountain View, USA
+   - Category: Internship
+   - Missions:
+      - Assisting in the development of a machine learning-based recommendation system.
+      - Conducting unit testing and debugging code in a Python environment.
+      - Collaborating with cross-functional teams for project delivery.
+   - Skills: Python, Machine Learning, Flask, Git
+
+3.
+   - Title: Web Application Developer
+   - Company: WebTech Solutions
+   - Duration: 07/2018 – 04/2020
+   - Location: Toronto, Canada
+   - Category: Full-time
+   - Missions:
+      - Developing and maintaining e-commerce websites for various clients.
+      - Implementing responsive and user-friendly web interfaces using HTML, CSS, and JavaScript.
+      - Troubleshooting and resolving software defects in a PHP and MySQL environment.
+   - Skills: HTML, CSS, JavaScript, PHP, MySQL
+
+Personal Projects:
+1.
+   - Title: Personal Portfolio Website
+   - Missions:
+      - Design and develop a personal portfolio website.
+      - Showcase projects and skills using React.
+   - Skills: HTML, CSS, JavaScript, React
+   - Links:
+      - Portfolio: [Link](https://yourportfolio.com)
+      - GitHub: [Link](https://github.com/YourGitHub/Portfolio)
+
+2.
+   - Title: Task Management App
+   - Missions:
+      - Create a web-based task management application.
+      - Implement features for task creation, deletion, and status tracking using Node.js, Express, and MongoDB.
+   - Skills: Node.js, Express, MongoDB, React
+   - Links:
+      - Demo: [Link](https://taskappdemo.com)
+      - GitHub: [Link](https://github.com/YourGitHub/TaskApp)
+
+3.
+   - Title: Code Snippet Library
+   - Missions:
+      - Develop a platform for storing and sharing code snippets.
+      - Implement user authentication and authorization using Django and Vue.js.
+   - Skills: Django, Python, JavaScript, Vue.js
+   - Links:
+      - Live: [Link](https://codesnippetlibrary.com)
+      - GitHub: [Link](https://github.com/YourGitHub/CodeSnippetLibrary)
+
+Certifications:
+1.
+   - Title: Certified ScrumMaster (CSM)
+   - Issuing Body: Scrum Alliance
+   - Date: 03/2021
+
+2.
+   - Title: AWS Certified Developer – Associate
+   - Issuing Body: Amazon Web Services (AWS)
+   - Date: 06/2019
+
+Publications:
+1.
+   - Title: Best Practices in Software Development
+   - Duration: 11/2022 - 12/2022
+   - Additional Info: Conference Presentation
+   - Links:
+      - Presentation Slides: [Link](https://conferencepresentation.com)
+      - Paper: [Link](https://academicpaper.com)
+      - GitHub: [Link](https://github.com/YourGitHub/SoftwareBestPractices)
+   - Missions:
+      - Presenting best practices for software development based on industry experience.
+      - Sharing insights on agile methodologies and continuous integration.
+   - Skills: Software Architecture, DevOps, Continuous Integration
