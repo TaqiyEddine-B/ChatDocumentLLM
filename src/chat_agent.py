@@ -31,3 +31,15 @@ class ChatAgent:
 
             st.session_state.messages.append(response_[0])
             st.chat_message("assistant").write(response)
+
+    def external_question(self, question):
+        message = [{"role": "user", "content":str(question)}]
+        st.session_state.messages.append(message[0])
+
+        st.chat_message("user").write(question)
+
+        response = self.send_message(st.session_state.messages)
+        response_ = [{"role": "assistant", "content":str(response)}]
+
+        st.session_state.messages.append(response_[0])
+        st.chat_message("assistant").write(response)
