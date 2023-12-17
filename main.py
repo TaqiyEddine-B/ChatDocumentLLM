@@ -9,16 +9,29 @@ from io import StringIO
 from src.chat_agent import ChatAgent
 from src.chroma_ import ChromaPy
 from src.utils import chat_bot
-
+from src.llama_index_exp import LlamaIndexExp
 st.write("# Chat with your documents using langchain and streamlit")
 openai_key = st.sidebar.text_input('OpenAI Key', '')
 
+
 def pipeline(file_path:str) :
-    ch = ChromaPy(openai_key)
-    ch.prepare(txt_file=file_path)
-    with st.expander("File content"):
-        st.write(ch.raw_text)
-    chat_bot = ChatAgent(fun=ch.chat_function)
+    def chroma_chat():
+        ch = ChromaPy(openai_key)
+        ch.prepare(txt_file=file_path)
+
+        with st.expander("File content"):
+            st.write(ch.raw_text)
+
+        chat_bot = ChatAgent(fun=ch.chat_function)
+        return chat_bot
+
+    def llama_index_chat():
+        li = LlamaIndexExp(openai_key)
+        li.prepare()
+        chat_bot = ChatAgent(fun=li.chat_function)
+        return chat_bot
+
+    chat_bot = llama_index_chat()
     return chat_bot
 
 def upload_file():

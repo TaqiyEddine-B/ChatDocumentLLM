@@ -7,3 +7,5 @@ pypdf==3.17.1
 sentence-transformers
 chromadb
 tiktoken
+llama-index
+

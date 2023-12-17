@@ -1,13 +1,13 @@
 {
     "cv_teb.txt":  [
         "What is the most recent work experience?",
-        "What are the 1st personal project?",
+        "How many personal projects have you worked on?",
         "What is the university of the 1st education?",
         "What is the city of the 2nd education?"
     ],
     "cv_tim.txt":  [
         "What is the most recent work experience?",
-        "What are the 1st personal project?",
+        "How many personal projects have you worked on?",
         "What is the university of the 1st education?",
         "What is the city of the 2nd education?",
         "What are your certifications?"
