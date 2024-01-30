@@ -12,7 +12,7 @@ from src.utils import chat_bot
 
 load_dotenv()
 st.write("# Chat with your documents")
-openai_key = st.sidebar.text_input('OpenAI Key', '')
+openai_key = st.sidebar.text_input('Enter your OpenAI API key', '')
 
 
 def pipeline(file_path: str):
@@ -93,8 +93,3 @@ chat_bot.chat_bot()
 
 load_questions(chat_bot, file_path)
 
-
-# CMD LINE VERSION
-# chat_bot(fun=ch.chat_function)
-
-# WEB VERSION

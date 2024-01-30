@@ -26,4 +26,15 @@ To run the code, use the following command:
 streamlit run main.py
 ```
 # Changelog
-- 
+- 01-2024
+  - Change the title to “Chat with your documents”
+  - Update readme
+
+
+- 12-2023
+  - Add [[LlamaIndex]] and implement the 1st example
+  - Add a sample file cv_tim.txt
+  - Add questions related to local file
+  - Add 1st version of [[Chroma]]
+  - Add streamlit option to upload document
+  - Create a [[GitHub]] project and push the 1st version (09-12-2023)
