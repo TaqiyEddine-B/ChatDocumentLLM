@@ -25,3 +25,5 @@ To run the code, use the following command:
 ```bash
 streamlit run main.py
 ```
+# Changelog
+- 
