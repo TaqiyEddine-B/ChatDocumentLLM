@@ -1,12 +1,15 @@
+- 02-2024
+  - Update readme by adding a technical resume
+
 - 01-2024
+  - Fix bug when the questions's file is not found
   - Change the title to “Chat with your documents”
   - Update readme
 
-
 - 12-2023
-  - Add [[LlamaIndex]] and implement the 1st example
+  - Add LlamaIndex and implement the 1st example
   - Add a sample file cv_tim.txt
   - Add questions related to local file
-  - Add 1st version of [[Chroma]]
+  - Add 1st version of Chroma
   - Add streamlit option to upload document
-  - Create a [[GitHub]] project and push the 1st version (09-12-2023)
+  - Create a GitHub project and push the 1st version (09-12-2023)

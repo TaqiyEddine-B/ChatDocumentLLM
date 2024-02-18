@@ -1,5 +1,5 @@
 python-dotenv==1.0.0
-streamlit==1.29.0
+streamlit==1.31.0
 langchain==0.0.349-rc.2
 openai==1.3.7
 pinecone-client==2.2.4
@@ -8,4 +8,4 @@ sentence-transformers
 chromadb
 tiktoken
 llama-index
-
+pylint==3.0.3
