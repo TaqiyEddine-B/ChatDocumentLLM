@@ -1,5 +1,5 @@
 # Introduction
-In this project, I develop a simple chatbot using llama index package and Streamlit. The used technique is RAG (Retrieval-Augmented Generation).
+In this project, I develop a simple chatbot using llama-index package and Streamlit. The demo can be found [here](https://chatdocumentllm.streamlit.app/).
 
 # Setting up a virtual environment
 It's recommended to create a virtual environment. Here, we'll be using Conda.
@@ -37,15 +37,17 @@ Here is a high-level overview of the system:
 ![System Overview](doc/overview.png)
 
 ## Steps
-- **User Uploads Documents**: The user adds their documents (.txt files) to the system.
+The system goes through the following steps:
+- **User add documents**
+  -  The user adds their documents (.txt files) to data folder.
+  -  The system show the user the documents added.
 
-- **User Interaction**: The user can interact with the chatbot by asking questions or making queries.
+- **Indexing**
+  - The system processes the uploaded documents and creates an index.
 
-- **Document Indexing**: The chatbot processes the uploaded documents and creates an index.
+- **Query Engine Development**
+  - The system develops a query engine, which is a component responsible for interpreting user queries and searching through the document index to retrieve relevant documents.
 
-- **Query Engine Development**: The chatbot develops a query engine, which is a component responsible for interpreting user queries and searching through the document index to retrieve relevant documents.
-
-- **Query Processing**: When the user asks a question or makes a query, the chatbot utilizes the query engine to process the query and retrieve relevant documents from the index.
-
-Overall, this setup allows the chatbot to efficiently retrieve relevant information from the uploaded documents based on user queries.
+- **Query Processing**
+  - a When the user asks a question, the chatbot utilizes the query engine to process the query.
 
