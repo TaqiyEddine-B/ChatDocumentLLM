@@ -51,3 +51,6 @@ The system goes through the following steps:
 - **Query Processing**
   - a When the user asks a question, the chatbot utilizes the query engine to process the query.
 
+## UI
+The following screenshot shows the user interface of the application.
+![UI](doc/ui_v1.png)
