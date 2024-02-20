@@ -6,11 +6,19 @@ from dotenv import load_dotenv
 
 from src.chat_agent import ChatAgent
 from src.llama_index_exp import LlamaIndexQuery
-from src.utils import chat_bot
+from src.utils import chat_bot, load_markdown_file
 
 load_dotenv()
-st.write("# Chat with your documents")
+st.set_page_config(
+    page_title="Chat with your documents",
+    page_icon="📚",
+    layout="wide",
+)
+
 openai_key = st.sidebar.text_input('Enter your OpenAI API key', '')
+
+
+st.title('Chat with your documents')
 
 
 def init_agent():
@@ -30,11 +38,18 @@ def load_local_files():
                 file)[0], 'path': os.path.join(os.getcwd(), 'data', file)}
     return result
 
+
 local_files = load_local_files()
 st.sidebar.write("## Local files")
 file_path = st.sidebar.selectbox('Select a file', local_files.keys())
 file_name = local_files[file_path]['name']
 dd = local_files[file_path]['path']
 
-chat_bot = init_agent()
-chat_bot.chat_bot()
+tab_main, tab_readme = st.tabs(["Main", "Readme"])
+with tab_main:
+    chat_bot = init_agent()
+    chat_bot.chat_bot()
+
+with tab_readme:
+    markdown_content = load_markdown_file("README.md")
+    st.markdown(markdown_content)

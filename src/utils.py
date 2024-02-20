@@ -51,3 +51,8 @@ def load_questions(chat_bot, file_name: str):
             if len(question) > 1 and last_question != question:
                 chat_bot.external_question(question)
                 st.session_state['question'] = question
+
+def load_markdown_file(markdown_file):
+    with open(markdown_file, 'r') as file:
+        content = file.read()
+    return content
