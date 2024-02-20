@@ -1,6 +1,6 @@
 """ Llama Index Query Engine"""
 import os
-from llama_index import SimpleDirectoryReader, VectorStoreIndex
+from llama_index.legacy import SimpleDirectoryReader, VectorStoreIndex
 
 class LlamaIndexQuery:
     """ Llama Index Query Engine to query the index."""
