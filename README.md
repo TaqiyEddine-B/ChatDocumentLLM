@@ -1,37 +1,14 @@
-# Introduction
-In this project, I develop a simple chatbot using llama-index package and Streamlit. The demo can be found [here](https://chatdocumentllm.streamlit.app/).
 
-# Setting up a virtual environment
-It's recommended to create a virtual environment. Here, we'll be using Conda.
-To create a new Conda environment, use the following command:
+In this project, I develop a basic chatbot using the llama-index package and Streamlit. Check out the demo [here](https://chatdocumentllm.streamlit.app/).
 
-```bash
-conda create --name llm
-```
-
-After creating the environment, activate it using:
-
-```bash
-conda activate llm
-```
-
-Once the Conda environment is activated, you can install the dependencies from the `requirements.txt` file. Use the following command:
-
-```bash
-pip install -r requirements.txt
-```
-
-# Usage
-To run the code, use the following command:
-
-```bash
-streamlit run main.py
-```
+My aim is to get hands-on experience with the llama-index package and to test the chatbot's functionality in a simple use case scenario: answering questions about a CV.
 
 # Use Case
-The chatbot can be used to answer questions related to the llama index package. It can also be used to answer general questions about the package. To simplify the use case, I add one document which represent a cv of one person. The chatbot can answer questions about the cv.
+I've included a single CV document for simplicity. The chatbot is designed to respond to questions based on this CV. This setup allows me to evaluate both the chat functionality and the llama-index package efficiently.
 
-# System overview
+Feel free to try out the demo and see how the chatbot handles questions about the provided CV.
+
+# System Overview
 The chatbot uses the llama index package to answer questions. The package is used to retrieve relevant documents from the llama index and then generate a response using the retrieved documents.
 Here is a high-level overview of the system:
 ![System Overview](doc/overview.png)
@@ -54,3 +31,29 @@ The system goes through the following steps:
 ## UI
 The following screenshot shows the user interface of the application.
 ![UI](doc/ui_v1.png)
+
+# Setup and Usage
+It's recommended to create a virtual environment. Here, we'll be using Conda.
+To create a new Conda environment, use the following command:
+
+```bash
+conda create --name llm
+```
+
+After creating the environment, activate it using:
+
+```bash
+conda activate llm
+```
+
+Once the Conda environment is activated, you can install the dependencies from the `requirements.txt` file. Use the following command:
+
+```bash
+pip install -r requirements.txt
+```
+
+To run the code, use the following command:
+
+```bash
+streamlit run main.py
+```
