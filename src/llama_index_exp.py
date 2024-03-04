@@ -1,6 +1,12 @@
 """ Llama Index Query Engine"""
 import os
-from llama_index.legacy import SimpleDirectoryReader, VectorStoreIndex
+
+# used by llama_index 
+import nltk
+nltk.download('stopwords')
+
+from llama_index.core  import SimpleDirectoryReader, VectorStoreIndex
+
 
 class LlamaIndexQuery:
     """ Llama Index Query Engine to query the index."""
