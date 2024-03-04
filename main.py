@@ -6,17 +6,18 @@ from dotenv import load_dotenv
 
 from src.chat_agent import ChatAgent
 from src.llama_index_exp import LlamaIndexQuery
-from src.utils import chat_bot, load_markdown_file
+from src.utils import chat_bot, load_markdown_file, load_openai_key
 
 load_dotenv()
+
 st.set_page_config(
     page_title="Chat with your documents",
     page_icon="📚",
     layout="wide",
 )
 
-openai_key = st.sidebar.text_input('Enter your OpenAI API key', '')
 
+openai_key = load_openai_key()
 
 st.title('Chat with your documents')
 
