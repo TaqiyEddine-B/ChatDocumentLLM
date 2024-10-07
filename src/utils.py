@@ -1,7 +1,8 @@
 """ This module contains utility functions for the chatbot. """
-import sys
-import os
 import json
+import os
+import sys
+
 import streamlit as st
 
 

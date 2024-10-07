@@ -5,13 +5,15 @@ My aim is to get hands-on experience with the llama-index package and to test th
 
 # Use Case
 I've included a single CV document for simplicity. The chatbot is designed to respond to questions based on this CV. This setup allows me to evaluate both the chat functionality and the llama-index package efficiently.
-
 Feel free to try out the demo and see how the chatbot handles questions about the provided CV.
+
+Here's a brief overview drawing of the project:
+![System Overview](doc/product_design.png)
 
 # System Overview
 The chatbot uses the llama index package to answer questions. The package is used to retrieve relevant documents from the llama index and then generate a response using the retrieved documents.
 Here is a high-level overview of the system:
-![System Overview](doc/overview.png)
+![System Overview](doc/system_design.png)
 
 ## Steps
 The system goes through the following steps:
