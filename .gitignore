@@ -2,4 +2,4 @@
 .env
 *.pyc
 temp
-data/cv_teb.txt
+data
