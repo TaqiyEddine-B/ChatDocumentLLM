@@ -68,7 +68,7 @@ with col_file:
                 f.write(file_contents)
 
 with col_chat:
-    st.subheader("Chatting",divider ="green")
+    st.subheader("Chat",divider ="green")
 
     if not is_key_provided:
         st.warning('Please provide the OpenAI API key to start chatting.')
