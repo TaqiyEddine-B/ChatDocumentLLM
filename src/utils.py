@@ -27,7 +27,7 @@ def load_openai_key()->str:
         st.sidebar.success('Using OpenAI Key from sectrets.toml')
         is_provided = True
     else:
-        key = st.sidebar.text_input('Enter your OpenAI API key', type="password")
+        key = st.sidebar.text_input('Add OpenAI API key and press \'Enter \'', type="password")
         if len(key) > 0:
             st.sidebar.success('Using the provided OpenAI Key')
             is_provided = True

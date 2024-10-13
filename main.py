@@ -43,7 +43,7 @@ st.sidebar.divider()
 
 
 st.sidebar.subheader("About")
-st.sidebar.link_button("GitHub Repo of the project", "https://github.com/TaqiyEddine-B/ChatDocumentLLM")
+st.sidebar.link_button("GitHub Repository", "https://github.com/TaqiyEddine-B/ChatDocumentLLM")
 st.sidebar.link_button("My website", "https://taqiyeddine.com")
 
 height=900
