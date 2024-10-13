@@ -1,14 +1,11 @@
 """ Main file for the chatbot. """
 import os
-
 import streamlit as st
-from dotenv import load_dotenv
 
 from src.chat_agent import ChatAgent
 from src.llama_index_exp import LlamaIndexQuery
-from src.utils import chat_bot, load_markdown_file, load_openai_key
+from src.utils import chat_bot,  load_openai_key
 
-load_dotenv()
 
 st.set_page_config(
     page_title="Chat with your document",
@@ -25,10 +22,10 @@ st.sidebar.divider()
 st.sidebar.subheader("1. Add OpenAI API key")
 
 
-openai_key = load_openai_key()
+openai_key,is_key_provided = load_openai_key()
 
 st.title('Chat with your document')
-st.write("Upload a file and start chatting with the document content.")
+st.write("Upload a file and start chatting with its content.")
 
 
 def init_agent():
@@ -72,5 +69,14 @@ with col_file:
 
 with col_chat:
     st.subheader("Chatting",divider ="green")
-    chat_bot = init_agent()
-    chat_bot.chat_bot()
+
+    if not is_key_provided:
+        st.warning('Please provide the OpenAI API key to start chatting.')
+    else:
+        # check if the file is uploaded
+
+        if uploaded_file is None:
+            st.warning('Please upload a file to start chatting.')
+        else:
+            chat_bot = init_agent()
+            chat_bot.chat_bot()

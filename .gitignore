@@ -2,3 +2,5 @@
 .env
 *.pyc
 temp
+secrets.toml
+data

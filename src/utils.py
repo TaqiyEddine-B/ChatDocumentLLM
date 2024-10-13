@@ -7,21 +7,33 @@ import streamlit as st
 
 
 def load_openai_key()->str:
-    """ Load the OpenAI key from the environment variable or from the user input."""
+    """
+    Load the OpenAI API key from the environment variable or user input.
+
+    This function checks for the OpenAI API key in the following order:
+    1. Streamlit secrets (secrets.toml file)
+    2. User input via Streamlit sidebar
+
+    Returns:
+        tuple[str, bool]: A tuple containing:
+            - str: The OpenAI API key
+            - bool: A flag indicating whether a valid key was provided
+    """
     key =""
-    env_var = os.getenv('OPENAI_API_KEY')
-    if env_var is not None:
-        st.sidebar.success('Using OpenAI Key from .env')
-        key = env_var
+    is_provided = False
+    secrets_file = os.path.join(".streamlit", "secrets.toml")
+    if  os.path.exists(secrets_file) and "OPENAI_API_KEY" in st.secrets.keys():
+        key = st.secrets["OPENAI_API_KEY"]
+        st.sidebar.success('Using OpenAI Key from sectrets.toml')
+        is_provided = True
     else:
         key = st.sidebar.text_input('Enter your OpenAI API key', type="password")
         if len(key) > 0:
-            os.environ["OPENAI_API_KEY"] = key
             st.sidebar.success('Using the provided OpenAI Key')
+            is_provided = True
         else:
-            st.error('No OpenAI Key')
-            st.stop()
-    return key
+            st.sidebar.error('No OpenAI Key')
+    return key, is_provided
 
 
 def chat_bot(fun):
@@ -71,8 +83,3 @@ def load_questions(chat_bot, file_name: str):
             if len(question) > 1 and last_question != question:
                 chat_bot.external_question(question)
                 st.session_state['question'] = question
-
-def load_markdown_file(markdown_file):
-    with open(markdown_file, 'r') as file:
-        content = file.read()
-    return content

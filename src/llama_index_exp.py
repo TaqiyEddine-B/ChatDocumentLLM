@@ -2,8 +2,8 @@
 import os
 
 # used by llama_index 
-import nltk
-nltk.download('stopwords')
+# import nltk
+# nltk.download('stopwords')
 import streamlit as st
 from llama_index.core  import SimpleDirectoryReader, VectorStoreIndex
 from llama_index.llms.openai import OpenAI
