@@ -32,7 +32,7 @@ The system goes through the following steps:
 
 ## UI
 The following screenshot shows the user interface of the application.
-![UI](doc/ui_v1.png)
+![UI](doc/ui_v2.png)
 
 # Setup and Usage
 It's recommended to create a virtual environment. Here, we'll be using Conda.
